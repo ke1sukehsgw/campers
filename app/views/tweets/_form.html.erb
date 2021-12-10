@@ -1,0 +1,20 @@
+<%= form_with model: @tweet, local: true do |f|%>
+  <div class="field">
+    <%= f.label :location_title, "場所の名称" %><br />
+    <%= f.text_field :location_title, id:"location_title" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefectures, "都道府県" %><br />
+    <%= f.text_field :prefectures, id:"location_prefectures" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "キャンプ場の画像" %><br />
+    <%= f.file_field :image, id:"location_image" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>
