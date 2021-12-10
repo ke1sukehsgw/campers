@@ -1,4 +1,8 @@
 class TweetsController < ApplicationController
+  before_action :authenticate_user!,except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show]
+  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+
   def index
     @tweet = Tweet.all
   end
@@ -17,17 +21,14 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweet = Tweet.find(params[:id])
     @comment = Comment.new
     @comments = @tweet.comments.includes(:user)
   end
 
   def edit
-    @tweet = Tweet.find(params[:id])
   end
 
   def update
-    @tweet = Tweet.find(params[:id])
     @tweet.update(tweet_params)
     if @tweet.update(tweet_params)
       redirect_to tweet_path, method: :patch
@@ -37,12 +38,21 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    @tweet = Tweet.find(params[:id])
     @tweet.destroy
     redirect_to root_path
   end
 
   def tweet_params
     params.require(:tweet).permit(:location_title, :prefectures, :image).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
+  end
+
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
   end
 end
