@@ -4,7 +4,7 @@
       <p class="prototype__hedding">
         <%= @tweet.location_title%>
       </p>
-      <%= link_to "by #{@tweet.user.name}", root_path, class: :prototype__user %>
+      <%= link_to "by #{@tweet.user.name}", user_path(@tweet.user.id), class: :prototype__user %>
 
       <% if user_signed_in? && current_user.id == @tweet.user_id %>
         <div class="prototype__manage">
@@ -48,11 +48,10 @@
             <% @comments.each do |comment| %>
               <p>
                 <%= comment.content %>
-                <%= link_to comment.user.name, root_path, class: :comment_user %>
+                <%= link_to comment.user.name, user_path(comment.user.id), class: :comment_user %>
               </p>
             <% end %>
           </li>
-          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
         </ul>
       </div>
     </div>
