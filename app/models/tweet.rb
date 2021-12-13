@@ -5,7 +5,12 @@ class Tweet < ApplicationRecord
 
   with_options presence: true do
   validates :location_title
-  validates :prefectures
+  validates :prefectures_id
   validates :image
   end
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :prefectures
+
+  validates :prefectures_id, numericality: { other_than: 0 ,message: "can't be blank" }
 end

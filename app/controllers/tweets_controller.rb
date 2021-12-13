@@ -42,8 +42,10 @@ class TweetsController < ApplicationController
     redirect_to root_path
   end
 
+  private
+
   def tweet_params
-    params.require(:tweet).permit(:location_title, :prefectures, :image).merge(user_id: current_user.id)
+    params.require(:tweet).permit(:location_title, :prefectures_id, :image).merge(user_id: current_user.id)
   end
 
   def move_to_index

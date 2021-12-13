@@ -3,7 +3,7 @@
   <div class="card__body">
     <%= link_to "#{tweet.location_title}", tweet_path(tweet.id), class: :card__title%>
     <p class="card__summary">
-      <%= "#{tweet.prefectures}" %>
+      <%= "#{tweet.prefectures.name}" %>
     </p>
     <%= link_to "by #{tweet.user.name}", user_path(tweet.user.id), class: :card__user %>
   </div>

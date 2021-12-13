@@ -40,7 +40,6 @@ a {
   background-color: #f1f8fe;
   margin-bottom: 48px;
   padding: 20px 0;
-
 }
 .inner {
   width: 1024px;
@@ -79,6 +78,15 @@ a {
   user-select: none;
 }
 .nav__logout:hover{
+  opacity: 0.5;
+}
+.user_name{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: #87CEFA;
+}
+.user_name:hover{
   opacity: 0.5;
 }
 
@@ -120,12 +128,6 @@ a {
 
 /* メイン */
 
-.greeting{
-  margin-bottom: 20px;
-}
-.greeting__link{
-  text-decoration: underline;
-}
 .page-heading {
   font-size: 30px;
   margin-bottom: 28px;

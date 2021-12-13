@@ -19,6 +19,7 @@
           </div>
           <% if user_signed_in? %>
             <div class="nav__right">
+            　<%= link_to "#{current_user.name}さん",user_path(current_user), class: :user_name %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
               <%= link_to "New Photo", new_tweet_path, class: :nav__btn %>
             </div>
