@@ -6,7 +6,12 @@
 
   <div class="field">
     <%= f.label :prefectures_id, "都道府県" %><br />
-    <%= f.collection_select(:prefectures_id, Prefectures.all, :id, :name, {}, { class:"select-box" , id:"location_prefectures"}) %>
+    <%= f.collection_select(:prefectures_id, Prefectures.all, :id, :name, {}, { class:"select-box", id:"location_prefectures"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text, "口コミ" %><br />
+    <%= f.text_area :text, id:"location_text" %>
   </div>
 
   <div class="field">

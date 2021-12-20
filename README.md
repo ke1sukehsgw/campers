@@ -14,10 +14,11 @@
 
 ## tweetsテーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| text    | text       | null: false                    |
-| user_id | references | null: false, foreign_key: true |
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| location_title | string     | null: false                    |
+| text           | text       | null: false                    |
+| user_id        | references | null: false, foreign_key: true |
 
 ### Association
 

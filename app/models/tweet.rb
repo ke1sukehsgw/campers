@@ -6,6 +6,7 @@ class Tweet < ApplicationRecord
   with_options presence: true do
   validates :location_title
   validates :prefectures_id
+  validates :text
   validates :image
   end
 
